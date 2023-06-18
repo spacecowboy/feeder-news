@@ -1,0 +1,54 @@
+{{- $pctx := . -}}
+{{- if .IsHome -}}{{ $pctx = .Site }}{{- end -}}
+{{- $pages := slice -}}
+{{- if or $.IsHome $.IsSection -}}
+{{- $pages = $pctx.RegularPages -}}
+{{- else -}}
+{{- $pages = $pctx.Pages -}}
+{{- end -}}
+{{- $limit := .Site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+{{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  {{ with  .OutputFormats.Get "atom" -}}
+  <id>{{ .Permalink }}</id>
+  {{- end }}
+  <title>{{ .Site.Title }}</title>{{ if not .Date.IsZero }}
+  <updated>{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>{{ end }}
+  <author>{{ with .Site.Params.AuthorName }}
+    <name>{{ . | safeHTML }}</name>{{ end }}{{ with .Site.Params.AuthorEmail }}
+    <email>{{.}}</email>{{ end }}
+  </author>
+  {{ with  .OutputFormats.Get "atom" -}}
+  {{ printf "<link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+  {{- end }}
+  {{ with .OutputFormats.Get "html" -}}
+	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+	{{ end -}}
+  <generator>Hugo -- gohugo.io</generator>
+  <subtitle>Latest entries</subtitle>
+  {{ with $.Site.Params.logo }}<icon>{{ . | absURL }}</icon>{{end}}
+  {{ with .Site.Copyright }}<rights>{{.}}</rights>{{end}}
+
+  {{ range $pages }}
+  {{- if (ne .Params.disableRSS true) }}
+  <entry>
+    <id>{{ .Permalink }}</id>
+    <link href="{{ .Permalink }}" rel="alternate" />
+    <title>{{ .Title }}</title>
+    <updated>{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
+    <author>{{ with .Site.Params.AuthorName }}
+      <name>{{ . | safeHTML }}</name>{{ end }}{{ with .Site.Params.AuthorEmail }}
+      <email>{{.}}</email>{{ end }}
+    </author>
+    {{ with .Params.thumbnail }}
+    <media:thumbnail url="{{. | absURL }}" />
+    {{end}}
+    {{ `<summary type="html"><![CDATA[` | safeHTML }}{{ .Summary | safeHTML  }}]]></summary>
+    {{ `<content type="html"><![CDATA[` | safeHTML }}{{ .Content | safeHTML }}]]></content>
+  </entry>
+  {{- end }}
+  {{ end }}
+</feed>

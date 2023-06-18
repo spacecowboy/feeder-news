@@ -1,0 +1,66 @@
+baseURL = 'https://news.nononsenseapps.com'
+languageCode = 'en-us'
+title = 'Feeder News'
+theme = 'archie'
+
+[params]
+# TODO
+favicon = "https://img.icons8.com/officel/16/000000/chevron-right.png"
+og_image = "https://raw.githubusercontent.com/athul/archie/master/images/archie-dark.png"
+# mode = "toggle"
+mode = "auto"
+useCDN = false
+subtitle = "Latest news and changes about Feeder [RSS Reader for Android](https://github.com/spacecowboy/feeder)"
+description = "Feeder is a free RSS reader app for Android"
+rssLimit = 10
+AuthorName = "Jonas"
+AuthorEmail = "jonas@nononsenseapps.com"
+GitHubUser = "spacecowboy"
+
+[author]
+  name = "Jonas"
+  email = "jonas@nononsenseapps.com"
+
+[mediaTypes."application/atom+xml"]
+suffixes = ["atom"]
+
+[outputFormats.Atom]
+mediaType = "application/atom+xml"
+noUgly = true
+#baseName = "index"
+#rel = "alternate"
+#isPlainText = false
+#isHTML = false
+#permalinkable = false
+
+[outputs]
+home = ["HTML", "Atom"]
+
+[markup.goldmark.renderer]
+# Raw HTML in content should be passed through
+unsafe= true
+
+[[params.social]]
+name = "GitHub"
+icon = "github"
+url = "https://github.com/spacecowboy/feeder"
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
