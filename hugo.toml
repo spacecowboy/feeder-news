@@ -4,22 +4,24 @@ title = 'Feeder News'
 theme = 'archie'
 
 [params]
-# TODO
-favicon = "https://img.icons8.com/officel/16/000000/chevron-right.png"
-og_image = "https://raw.githubusercontent.com/athul/archie/master/images/archie-dark.png"
+favicon = "favicon.ico"
+apple_touch_icon = "apple-touch-icon.png"
+og_image = "feature.png"
 # mode = "toggle"
 mode = "auto"
 useCDN = false
 subtitle = "Latest news and changes about Feeder [RSS Reader for Android](https://github.com/spacecowboy/feeder)"
 description = "Feeder is a free RSS reader app for Android"
-rssLimit = 10
 AuthorName = "Jonas"
 AuthorEmail = "jonas@nononsenseapps.com"
 GitHubUser = "spacecowboy"
 
+[services.rss]
+limit = 10
+
 [author]
-  name = "Jonas"
-  email = "jonas@nononsenseapps.com"
+name = "Jonas"
+email = "jonas@nononsenseapps.com"
 
 [mediaTypes."application/atom+xml"]
 suffixes = ["atom"]

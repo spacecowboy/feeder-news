@@ -9,13 +9,20 @@
 	<title>{{ $title }} - {{ $siteTitle }}</title>
 	{{- end -}}
 
-	{{- if isset .Site.Params "favicon" -}}
-	<link rel="icon" type="image/png" href={{ .Site.Params.favicon }} />
-	{{- end -}}
+	{{ with .Site.Params.favicon }}
+	<link rel="icon" type="image/png" href="{{ $.Site.BaseURL }}{{.}}" sizes="any"/>
+	{{ end }}
+
+	{{ with .Site.Params.apple_touch_icon }}
+	<link rel="apple-touch-icon" href="{{ $.Site.BaseURL }}{{.}}"/>
+	{{ end }}
+
+	{{ with .Site.Params.og_image }}
+	<meta property="og:image" content="{{ $.Site.BaseURL }}{{.}}"/>
+	{{ end }}
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
-	<meta property="og:image" content="{{ .Site.Params.og_image }}"/>
 	{{ with .OutputFormats.Get "atom" -}}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end -}}

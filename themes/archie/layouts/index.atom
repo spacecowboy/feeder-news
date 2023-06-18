@@ -32,6 +32,14 @@
   {{ with $.Site.Params.logo }}<icon>{{ . | absURL }}</icon>{{end}}
   {{ with .Site.Copyright }}<rights>{{.}}</rights>{{end}}
 
+  {{ with .Site.Params.favicon }}
+	<icon>{{ $.Site.BaseURL }}{{.}}</icon>
+	{{ end }}
+
+  {{ with .Site.Params.apple_touch_icon }}
+	<logo>{{ $.Site.BaseURL }}{{.}}</logo>
+	{{ end }}
+
   {{ range $pages }}
   {{- if (ne .Params.disableRSS true) }}
   <entry>
