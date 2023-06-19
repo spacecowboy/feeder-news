@@ -1,7 +1,7 @@
 ---
 title: "Giving OPML import/export some attention"
 date: 2023-06-16T23:14:15+02:00
-thumbnail: "phone_dialog.png"
+thumbnail: "posts/giving_some_opml_attention/phone_dialog.png"
 draft: false
 ---
 

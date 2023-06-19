@@ -1,7 +1,7 @@
 ---
 title: "New notification settings coming"
 date: 2023-05-23T23:23:25+02:00
-thumbnail: "notification_settings.png"
+thumbnail: "posts/new_notification_settings_coming/notification_settings.png"
 draft: false
 ---
 
