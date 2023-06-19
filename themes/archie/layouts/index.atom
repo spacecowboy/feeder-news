@@ -54,8 +54,8 @@
     {{ with .Params.thumbnail }}
     <media:thumbnail url="{{. | absURL }}" />
     {{end}}
-    {{ `<summary type="html"><![CDATA[` | safeHTML }}{{ .Summary | safeHTML  }}]]></summary>
-    {{ `<content type="html"><![CDATA[` | safeHTML }}{{ .Content | safeHTML }}]]></content>
+    {{ `<summary type="html"><![CDATA[` | safeHTML }}{{ replaceRE "img src=\"(.*?)\"" (printf "%s%s%s" "img src=\"" .Permalink "$1\"") .Summary | safeHTML }}]]></summary>
+    {{ `<content type="html"><![CDATA[` | safeHTML }}{{ replaceRE "img src=\"(.*?)\"" (printf "%s%s%s" "img src=\"" .Permalink "$1\"") .Content | safeHTML }}]]></content>
   </entry>
   {{- end }}
   {{ end }}
