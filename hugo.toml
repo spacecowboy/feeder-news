@@ -4,9 +4,9 @@ title = 'Feeder News'
 theme = 'archie'
 
 [params]
-favicon = "favicon.ico"
-apple_touch_icon = "apple-touch-icon.png"
-og_image = "feature.png"
+favicon = "/favicon.ico"
+apple_touch_icon = "/apple-touch-icon.png"
+og_image = "/feature.png"
 # mode = "toggle"
 mode = "auto"
 useCDN = false
