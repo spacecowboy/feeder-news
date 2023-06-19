@@ -17,7 +17,7 @@ AuthorEmail = "jonas@nononsenseapps.com"
 GitHubUser = "spacecowboy"
 
 [services.rss]
-limit = 10
+limit = 16
 
 [author]
 name = "Jonas"
