@@ -46,6 +46,15 @@ unsafe= true
 name = "GitHub"
 icon = "github"
 url = "https://github.com/spacecowboy/feeder"
+rel = "me"
+
+[[params.social]]
+name = "RSS"
+icon = "rss"
+weight = 6
+url = "https://news.nononsenseapps.com/index.atom"
+rel = "alternate"
+type = "application/atom+xml"
 
 [[menu.main]]
 name = "Home"
