@@ -10,6 +10,7 @@ J. Lavoie (1):
 
 Jonas Kalderstam (2):
   * [643f4ba7] Added global text actions to text selection menu
+    ![Example of global text actions](textactions.jpeg)
   * [cbf04689] Fixed bug where 1x1 tracking pixels could be selected as
          cover images
 
