@@ -1,7 +1,7 @@
 ---
 title: "Changes to read status in 2.5.0"
-date: 2023-08-08T12:00:57+02:00
-draft: true
+date: 2023-08-08T12:45:57+02:00
+draft: false
 ---
 
 Today I'd like to demonstrate a change to the read status in `2.5.0`. This is probably best shown in
