@@ -1,7 +1,7 @@
 ---
 title: "Changes to OPML import/export in 2.5.0"
-date: 2023-08-09T12:00:57+02:00
-draft: true
+date: 2023-08-09T22:00:57+02:00
+draft: false
 ---
 
 In `2.5.0`, an OPML export will include
@@ -34,4 +34,28 @@ This is a nice quality of life change if you ever need to re-install Feeder, or 
 </opml>
 ```
 
-Now this does mean that you can edit this file and input bad data to Feeder which could theoretically get you stuck in a crash loop so please don't manually edit this file without great caution.
+## Warning about shared block lists
+
+This means it's possible to share only a block list with someone else. Just open it in a text editor and remove everything else.
+
+For example like this:
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1" xmlns:feeder="https://nononsenseapps.com/feeder">
+  <head>
+    <title>
+      Feeder
+    </title>
+  </head>
+  <body>
+    <feeder:settings>
+      <feeder:blocked pattern="foo"/>
+    </feeder:settings>
+  </body>
+</opml>
+```
+
+There is currently no kind of validation for these patterns. So, hypothetically, the file you import has been modified, then it might get you stuck in a crash loop after import.
+
+So please don't modify the individual patterns outside of Feeder for now.
