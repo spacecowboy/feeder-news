@@ -8,7 +8,9 @@
 	{{- else -}}
 	<title>{{ $title }} - {{ $siteTitle }}</title>
 	{{- end -}}
-
+	{{ range .AlternativeOutputFormats -}}
+	<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+	{{ end -}}
 	{{ with .Site.Params.favicon }}
 	<link rel="icon" type="image/png" href="{{ $.Site.BaseURL }}{{.}}" sizes="any"/>
 	{{ end }}
