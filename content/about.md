@@ -5,7 +5,13 @@ draft: false
 disableRSS: true
 ---
 
-Feeder is a free RSS reader app for Android.
+My name is Jonas and I am building the best feed reader I can imagine.
+
+Feeder is an open source feed reader (RSS/Atom/JSONFeed) for Android.
+
+I have been building Feeder since 2014 and maintained other apps on the Play store since 2011.
+
+Feeder is Free Software (GPLv3) and welcomes constructive contributions.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Y8Y44OYQL)
 
